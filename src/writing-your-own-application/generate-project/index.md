@@ -1,5 +1,21 @@
 # 从模板生成项目
 
+## 如果你使用的是wsl？
+以下是共享 ESP32-C3 设备的步骤：
+1. 打开 Windows 命令提示符（以管理员身份）。
+2.运行以下命令来获取共享 COM3 端口的所有设备：
+   ```
+   usbipd list
+   ```
+3. 运行以下命令来共享 COM3 端口的设备：
+   ```
+   usbipd bind --busid <BUSID>
+   ```
+4. 共享设备后，回到 PowerShell 并尝试再次运行 `usbipd attach` 命令：
+   ```
+   usbipd attach --wsl --busid=<BUSID>
+   ```
+
 我们目前维护了两个模板仓库：
 - [`esp-template`][esp-template] - `no_std` 模板。
 - [`esp-idf-template`][esp-idf-template] - `std` 模板。
